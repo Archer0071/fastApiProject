@@ -7,7 +7,6 @@ from models.movie_model import MovieModel
 app = FastAPI()
 
 
-
 @app.get("/")
 async def root():
     return {"message": "WELCOME TO FAST-API DEMO"}
