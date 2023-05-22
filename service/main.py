@@ -1,7 +1,8 @@
 import fastapi.exceptions
 from fastapi import FastAPI
-import service.movie_data as movie_data
-from service.models.movie_model import MovieModel
+import uvicorn
+import movie_data as movie_data
+from models.movie_model import MovieModel
 
 app = FastAPI()
 
@@ -18,3 +19,7 @@ async def movie_search(title: str):
         raise fastapi.HTTPException(status_code=404)
     else:
         return movie.dict()
+
+
+if __name__ == '__main__':
+    uvicorn.run(app)
